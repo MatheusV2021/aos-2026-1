@@ -16,6 +16,10 @@ app.use((req, res, next) => {
   };
   next();
 });
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.path} - ${req.ip}`);
+  next();
+});
 
 app.use("/session", routes.session);
 app.use("/users", routes.user);
